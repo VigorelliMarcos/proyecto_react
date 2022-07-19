@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.barra {display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+}
+.botonNav {
+  border: 1px solid white;
+}
+.cartera{background-color: orangered;}
