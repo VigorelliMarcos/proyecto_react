@@ -1,6 +1,6 @@
 import "./App.css";
-import NavBar from "./componentes/NavBar";
-import ItemListContainer from "./componentes/ItemListContainer";
+import NavBar from "./componentes/NavBar/NavBar";
+import ItemListContainer from "./componentes/ItemList/ItemListContainer";
 
 function App() {
   const title = "Titulo de tienda";
