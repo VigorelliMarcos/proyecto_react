@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Placa de Video MSI GeForce GTX 1660 SUPER 6GB GDDR6 Ventus XS OC ",
+    "price": 65200,
+    "stock": 3,
+    "pictureUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_27750_Placa_de_Video_MSI_GeForce_GTX_1660_SUPER_6GB_GDDR6_Ventus_XS_OC_ad982a75-grn.jpg",
+    "category": "placa",
+    "color": "red",
+    "discount": 10
+  },
+  {
+    "id": 2,
+    "title": "Placa de Video ASUS GeForce GTX 1660 SUPER 6GB GDDR6 Phoenix OC",
+    "price": 67400,
+    "stock": 9,
+    "pictureUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_27887_Placa_de_Video_ASUS_GeForce_GTX_1660_SUPER_6GB_GDDR6_Phoenix_OC_558bcfa1-grn.jpg",
+    "category": "placa",
+    "color": "red",
+    "discount": 10
+  },
+  {
+    "id": 3,
+    "title": "Placa de Video MSI GeForce RTX 2060 6GB GDDR6 VENTUS GP OC",
+    "price": 74500,
+    "stock": 3,
+    "pictureUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_27752_Placa_de_Video_MSI_GeForce_RTX_2060_6GB_GDDR6_VENTUS_GP_OC_784522a6-grn.jpg",
+    "category": "placa",
+    "color": "red",
+    "discount": 10
+  },
+  {
+    "id": 4,
+    "title": "Mother Biostar B550MH AM4 D4",
+    "price": 17500,
+    "stock": 8,
+    "pictureUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_33326_Mother_Biostar_B550MH_AM4_D4_dcaa2326-grn.jpg",
+    "category": "mother",
+    "color": "red",
+    "discount": 10
+  },
+  {
+    "id": 5,
+    "title": "Mother ASUS PRIME B450M-A II AM4",
+    "price": 21300,
+    "stock": 9,
+    "pictureUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_22476_Mother_ASUS_PRIME_B450M-A_II_AM4_96a2e710-grn.jpg",
+    "category": "mother",
+    "color": "red",
+    "discount": 10
+  },
+  {
+    "id": 6,
+    "title": "Mother ASUS PRIME X570-P AM4 PCIe Gen4 Dual M.2",
+    "price": 45850,
+    "stock": 15,
+    "pictureUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_14215_Mother_ASUS_PRIME_X570-P_AM4_PCIe_Gen4_Dual_M.2_49e0b283-grn.jpg",
+    "category": "mother",
+    "color": "red",
+    "discount": 10
+  }
+]
