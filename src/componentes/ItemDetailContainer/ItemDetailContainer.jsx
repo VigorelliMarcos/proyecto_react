@@ -1,8 +1,8 @@
 import React, { useState,useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from 'react-router-dom';
-import detailedItems from "/Users/Marcos/Desktop/react/informatica_vigorelli/src/utils/details.json"
 import Spinner from "../ExampleComponents/Spinner";
+import detailedItems from "../../utils/details.json"
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
