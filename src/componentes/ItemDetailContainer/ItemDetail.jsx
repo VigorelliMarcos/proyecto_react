@@ -1,17 +1,18 @@
 import { useState, useContect, useContext } from "react";
-import ItemCount from "../ItemCount/ItemCount";
+import ItemCount from "../ItemDetailContainer/ItemCount";
 import { Link } from 'react-router-dom';
-import { CartContext } from "../../contexts/CartContext";
+import { GContext } from "../Cart/CartContext";
 
 
 const ItemDetail = ({ item }) => {
-    const { setCartItems } = useContext(CartContext);
+    const { addItem } = useContext(GContext);
     const [amount, setAmount] = useState(0);
     const { title, price, stock, pictureUrl, id, discount } = item;
-    const onAdd = (amount) => {
-      setAmount(amount);
-      setCartItems((prevState) => [...prevState, item]);
+    const onAdd = (cant) => {
+      addItem(item, cant);
     };
+  
+    console.log(addItem);
     return (
       <div className="card" style={{ width: "20rem" }}>
         <img className="card-img-top" src={pictureUrl} alt="Card image cap" />

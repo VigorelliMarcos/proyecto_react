@@ -1,27 +1,30 @@
-import React, { useContext, useEffect, useState } from "react";
-import { CartContext } from "../../contexts/CartContext";
+
+import React, { useContext } from "react";
+import { GContext } from "./CartContext";
+import CartItem from "./CartItem";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const [totalPrice, setTotalPrice] = useState(0);
-  const { cartItems } = useContext(CartContext);
-  useEffect(() => {
-    let total = 0;
-    cartItems.forEach((item) => {
-      total += parseInt(item.price);
-    });
-    setTotalPrice(total);
-  }, [cartItems]);
+  const { itemsCarrito, removeItem, clear, total } = useContext(GContext);
+  const tot = total();
   return (
     <>
-      <ul>
-        {cartItems.map((item) => (
-          <>
-            <li>{item.title}</li>
-            <li>{item.price}</li>
-          </>
-        ))}
-      </ul>
-      <h1 className="bg-primary">{`Su total es: $${totalPrice}`}</h1>
+      {itemsCarrito.length === 0 ? (
+        <>
+          No hay items! Agrega algunos
+          <Link to={"/"}>Volver</Link>
+        </>
+      ) : (
+        <>
+          {itemsCarrito.map((element) => (
+            <CartItem item={element.item} quantity={element.quantity} removeItem={removeItem} />
+          ))}
+          <button className="bg-red-500 p-2 " onClick={() => clear()}>
+            Vaciar carrito
+          </button>
+          <h1>El total de la compra es de : {tot}</h1>
+        </>
+      )}
     </>
   );
 };
