@@ -16,13 +16,14 @@ const Cart = () => {
         </>
       ) : (
         <>
-          {itemsCarrito.map((element) => (
-            <CartItem item={element.item} quantity={element.quantity} removeItem={removeItem} />
+        {itemsCarrito.map((element, i) => (
+          <CartItem key={i} item={element.item} quantity={element.quantity} removeItem={removeItem}/>
           ))}
-          <button className="bg-red-500 p-2 " onClick={() => clear()}>
-            Vaciar carrito
-          </button>
-          <h1>El total de la compra es de : {tot}</h1>
+        <button className="bg-red-500 p-2 " onClick={() => clear()}>
+          Vaciar carrito
+        </button>
+        
+        <h1>{`El total de la compra es de : $${tot}`}</h1>
         </>
       )}
     </>
