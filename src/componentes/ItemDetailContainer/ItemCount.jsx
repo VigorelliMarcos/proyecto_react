@@ -1,8 +1,8 @@
 
-import Reac, {useState} from 'react';
+import {useState} from 'react';
 
 
-const ItemCount = ({ stock = 2, initial = 0, onAdd }) => {
+const ItemCount = ({ stock , initial, onAdd }) => {
     const [count, setCount] = useState(initial);
     const updateCount = (op) => {
       if (op === "-" && count > 0) {

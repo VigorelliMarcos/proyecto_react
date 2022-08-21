@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "title": "Placa de Video MSI GeForce GTX 1660 SUPER 6GB GDDR6 Ventus XS OC ",
     "price": 65200,
     "stock": 3,
@@ -8,7 +8,7 @@
     "category": "placa"
   },
   {
-    "id": 2,
+    "id": 1,
     "title": "Placa de Video ASUS GeForce GTX 1660 SUPER 6GB GDDR6 Phoenix OC",
     "price": 67400,
     "stock": 9,
@@ -16,7 +16,7 @@
     "category": "placa"
   },
   {
-    "id": 3,
+    "id": 2,
     "title": "Placa de Video MSI GeForce RTX 2060 6GB GDDR6 VENTUS GP OC",
     "price": 74500,
     "stock": 3,
@@ -24,7 +24,7 @@
     "category": "placa"
   },
   {
-    "id": 4,
+    "id": 3,
     "title": "Mother Biostar B550MH AM4 D4",
     "price": 17500,
     "stock": 8,
@@ -32,7 +32,7 @@
     "category": "mother"
   },
   {
-    "id": 5,
+    "id": 4,
     "title": "Mother ASUS PRIME B450M-A II AM4",
     "price": 21300,
     "stock": 9,
@@ -40,7 +40,7 @@
     "category": "mother"
   },
   {
-    "id": 6,
+    "id": 5,
     "title": "Mother ASUS PRIME X570-P AM4 PCIe Gen4 Dual M.2",
     "price": 45850,
     "stock": 15,

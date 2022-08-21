@@ -1,8 +1,27 @@
 import { createContext, useState } from "react";
+import {
+  addDoc,
+  doc, 
+  getFirestore, 
+  collection, 
+  updateDoc, 
+  writeBatch
+} from "firebase/firestore"
 export const GContext = createContext();
 
 const CartContext = ({ children }) => {
   const [itemsCarrito, setItemCarrito] = useState([]);
+
+  const sendOrder = () => {
+    const db = getFirestore();
+    const orderCollection = collection(db, "orders");
+    const order = {
+      items: itemsCarrito,
+    };
+    addDoc(orderCollection, order)
+      .then((res) => console.log(res.id))
+      .catch((err) => console.log("error", err));
+  };
 
   const addItem = (item, quantity) => {
     const newItem = isInCart(item);
@@ -35,7 +54,7 @@ const CartContext = ({ children }) => {
       0
     );
   };
-  return <GContext.Provider value={{ itemsCarrito, addItem, removeItem, clear, total }}>{children}</GContext.Provider>;
+  return <GContext.Provider value={{ itemsCarrito, addItem, removeItem, clear, total, sendOrder }}>{children}</GContext.Provider>;
 };
 
 export default CartContext;
