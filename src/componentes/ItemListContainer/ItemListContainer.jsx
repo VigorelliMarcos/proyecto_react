@@ -1,39 +1,46 @@
-import { useState, useEffect } from "react";
-import ItemList from "./ItemList";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Spinner from "../ExampleComponents/Spinner";
-import { getFirestore, collection, getDocs, query, where, } from "firebase/firestore"
+import ItemList from "./ItemList";
+import Title from "../Title";
+import {
+	collection,
+	getDocs,
+	getFirestore,
+	query,
+	where,
+} from "firebase/firestore";
 
 
-const ItemListContainer = () => {
-  const { name } = useParams();
-  const [items, setItems] = useState([]);
+export const ItemListContainer = ({ texto }) => {
+	const [data, setData] = useState([]);
+	const { categoriaId } = useParams();
 
-  const [loading, setLoading] = useState(true);
-  const db = getFirestore();
-  const itemsCollection= collection(db, "items");
-  const coleccionFiltrada= query(itemsCollection,
-    where("category", "==", `${name}`))
+	useEffect(() => {
+		const querydb = getFirestore();
+		const queryCollection = collection(querydb, "items");
+		if (categoriaId) {
+			const queryFilter = query(queryCollection,
+				where("category", "==", `${categoriaId}`));
+			getDocs(queryFilter).then((res) =>
+				setData(
+					res.docs.map((product) => ({ id: product.id, ...product.data() })),
+				),
+			);
+		} else {
+			getDocs(queryCollection).then((res) =>
+				setData(
+					res.docs.map((product) => ({ id: product.id, ...product.data() })),
+				),
+			);
+		}
+	}, [categoriaId]);
 
-  useEffect(() => {
-    setLoading(true);    
-    if (name)
-      {getDocs(coleccionFiltrada).then ((snapshot)=>{
-      setItems( snapshot.docs.map (doc=>({id:doc.id, ...doc.data()})));
-      setLoading(false)})
-    }
-    else getDocs(itemsCollection).then ((snapshot) => {
-      setItems (snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-      setLoading(false);
-    });
-  }, [name]);
-
-  if (loading) return <Spinner />;  
-
-  return ( 
-    <div className="mt-5">
-      <ItemList items={items}/>
-    </div>   
-  );
+	return (
+		< div className="mt-5">
+			<Title greeting={texto} />
+			<ItemList data={data} />
+		</div>
+	);
 };
+
 export default ItemListContainer;

@@ -1,33 +1,52 @@
-
-import React, { useContext } from "react";
-import { GContext } from "./CartContext";
-import CartItem from "./CartItem";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import React from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from "./CartContext";
+import CartItem from "./CartItem";
 
 const Cart = () => {
-  const { itemsCarrito, removeItem, clear, total } = useContext(GContext);
-  const tot = total();
-  return (
-    <>
-      {itemsCarrito.length === 0 ? (
-        <>
-          No hay items! Agrega algunos
-          <Link to={"/"}>Volver</Link>
-        </>
-      ) : (
-        <>
-        {itemsCarrito.map((element, i) => (
-          <CartItem key={i} item={element.item} quantity={element.quantity} removeItem={removeItem}/>
-          ))}
-        <button className="bg-red-500 p-2 " onClick={() => clear()}>
-          Vaciar carrito
-        </button>
-        
-        <h1>{`El total de la compra es de : $${tot}`}</h1>
-        </>
-      )}
-    </>
-  );
+	const { cart, totalPrice } = useCartContext();
+
+	const order = {
+		buyer: {
+			name: "Pablo",
+			email: "Pablo@gmail.com",
+			phone: "123123",
+			address: "asdd",
+		},
+		items: cart.map((product) => ({
+			id: product.id,
+			title: product.title,
+			price: product.price,
+			quantity: product.quantity,
+		})),
+		total: totalPrice(),
+	};
+
+	const handleClick = () => {
+		const db = getFirestore();
+		const ordersCollection = collection(db, "orders");
+		addDoc(ordersCollection, order).then(({ id }) => console.log(id));
+	};
+
+	if (cart.length === 0) {
+		return (
+			<>
+				<p>No hay elementos en el carrito</p>
+				<Link to="/">Hacer compras</Link>
+			</>
+		);
+	}
+
+	return (
+		<>
+			{cart.map((product) => (
+				<CartItem key={product.id} product={product} />
+			))}
+			<p>total: {totalPrice()}</p>
+			<button onClick={handleClick}>Emitir compra</button>
+		</>
+	);
 };
 
 export default Cart;
